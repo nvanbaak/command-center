@@ -1,0 +1,67 @@
+body {
+    /* background-color: #477d74; */
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Flying_Laptop_Control_Center_Stuttgart_1.JPG/800px-Flying_Laptop_Control_Center_Stuttgart_1.JPG");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Georgia, Verdana, sans-serif;
+
+    user-select: none;
+}
+
+.contentBox {
+    background-color: #476e22;
+    border-radius: 10px;
+    border-color: #02685a;
+    border-width: 3px;
+    border-style: outset;
+    box-shadow: 1px 1px 5px navy;
+}
+
+.contentTable {
+    margin: 5%;
+    width: 90%;
+}
+
+.tableCell {
+    width: 50%
+}
+
+#sidebarLeft {
+    float: left;
+    width: 20%;
+    height: 300px;
+   
+}
+
+#sidebarRight {
+    float: right;
+    width: 20%;
+    height: 300px;
+   
+}
+
+#titleBox {
+    float: none;
+    margin: auto;
+    clear: none;
+    height: 200px;
+    width: 40%;
+}
+
+#mainTitleText {
+    text-align: center;
+    font-size: 40px;
+}
+
+.titleText {
+    text-align: center;
+}
+
+.button {
+    width: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Georgia, Verdana, sans-serif;
+}
