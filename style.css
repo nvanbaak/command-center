@@ -1,24 +1,62 @@
 body {
-    /* background-color: #477d74; */
+    /* Set background as an image that covers the screen without repeating */
     background-image: url(control-center.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: 50px;
-    margin-right: 150px;
-    margin-left: 150px;
+    background-size: cover; 
 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Georgia, Verdana, sans-serif;
+    /* We color everything that's not the image */
+    background-color: #314C43;
 
     user-select: none;
 }
 
+* {
+
+    /* Text settings */
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Georgia, Verdana, sans-serif;
+
+}
+
+header {
+    /* Puts a bar across the top of the screen for the topbar to inhabit */
+    position: fixed;
+    top: 50px;
+    width: 100vw;
+}
+
+.topbar {
+    /* Defines height and weight, and centers topbar inside parent container */
+    margin: auto auto;
+    height: 200px;
+    width: 450px;
+}
+
+main {
+    /* This positions it below the initial position of the main bar */
+    position: relative;
+    top: 300px;
+
+    /* This code defines the space that child objects are positioned in */
+    margin: auto;
+    width: 90%;
+
+    /* We expect two children, so this puts on on either side of the screen */
+    display: flex;
+    justify-content: space-between;
+
+}
+
 .contentBox {
+    /* Section appearance */
     background-color: #476e22;
     border-radius: 10px;
     border-color: #02685a;
     border-width: 3px;
     border-style: outset;
     box-shadow: 1px 1px 5px navy;
+
+    overflow: auto;
 }
 
 .contentTable {
@@ -30,38 +68,16 @@ body {
     width: 50%
 }
 
-#sidebarLeft {
-    float: left;
-    width: 300px;
-    /* height: 400px; */
-   
+.sidebar {
+    width: 300px;   
 }
 
-#sidebarRight {
-    float: right;
-    width: 300px;
-    /* height: 400px; */
-   
-}
-
-#titleBox {
-    float: none;
-    margin: auto;
-    clear: none;
-    height: 200px;
-    width: 40%;
-}
 
 #mainTitleText {
     text-align: center;
     font-size: 40px;
 }
 
-.titleText {
-    text-align: center;
-}
-
 button {
     width: 100%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Georgia, Verdana, sans-serif;
 }

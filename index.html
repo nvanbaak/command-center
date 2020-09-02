@@ -17,60 +17,70 @@
 
 <body>
 
-    <div class="contentBox" id="titleBox">
-        <h1 id="mainTitleText">Command Center</h1>
-        <hr>
-        <p></p>
-    </div>
-
-    <div class="contentBox" id="sidebarLeft">
-        <h2 class="titleText">Projects</h2>
-        <hr>
-        <table class="contentTable">
-            <tr>
-                <td class="tableCell"><button onclick="linkButton('https://wordpress.com/posts/theytoldmeiwasdifferent.wordpress.com')">Blog</button></td>
-
-                <td class="tableCell"><button onclick="linkButton('https://discord.com/channels/265670327814717440/747880312683364362')">
-                    Blades</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="tableCell"><button onclick="linkButton('https://docs.google.com/document/d/1yThoWJBh-pT0idgWHrBSak37_6rox43latoUmfDb52I/edit#heading=h.dzg74zx8p37l')">Valdez</button></td>
-
-                <td class="tableCell"><button onclick="linkButton('')">
-                    Placeholder</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-   <div class="contentBox" id="sidebarRight">
-        <h2 class=titleText>Quicklaunch</h2>
-        <hr>
-        <table class="contentTable">
-            <tr >
-                <td class="tableCell"><button onclick="linkButton('https://bootcampspot.com/')">
-                    Bootcamp Spot
-                </button>
-                </td>
-                <td class="tableCell"><button onclick="linkButton('https://github.com/nvanbaak?tab=repositories')">
-                    Github
-                </button>
-                </td>
-            </tr>
-            <tr>
-                <td class="tableCell"><button onclick="linkButton('https://developer.mozilla.org/en-US/docs/Web')">
-                    MDN Reference
-                </button>
-                </td>
-                <td class="tableCell"><button onclick="linkButton('https://www.w3schools.com/js/default.asp')">
-                    W3
-                </button>
-                </td>
-            </tr>
-
-        </table>
-    </div>
     
+    <header>
+        <div class="contentBox topbar">
+            <h1 id="mainTitleText">Command Center</h1>
+            <hr>
+            <p></p>
+        </div>
+    </header>
+
+    <main>
+        <div class="contentBox sidebar">
+            <h2 class="titleText">Projects</h2>
+            <hr>
+            <table class="contentTable">
+                <tr>
+                    <td class="tableCell"><button onclick="linkButton('https://wordpress.com/posts/theytoldmeiwasdifferent.wordpress.com')">Blog</button></td>
+
+                    <td class="tableCell"><button onclick="linkButton('https://discord.com/channels/265670327814717440/747880312683364362')">
+                        Blades</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableCell"><button onclick="linkButton('https://docs.google.com/document/d/1yThoWJBh-pT0idgWHrBSak37_6rox43latoUmfDb52I/edit#heading=h.dzg74zx8p37l')">Valdez</button></td>
+
+                    <td class="tableCell"><button onclick="linkButton('')">
+                        Placeholder</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <div class="contentBox sidebar">
+            <h2 class=titleText>Quicklaunch</h2>
+            <hr>
+            <table class="contentTable">
+                <tr >
+                    <td class="tableCell"><button onclick="linkButton('https://bootcampspot.com/')">
+                        Bootcamp Spot
+                    </button>
+                    </td>
+                    <td class="tableCell"><button onclick="linkButton('https://github.com/nvanbaak?tab=repositories')">
+                        Github
+                    </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableCell"><button onclick="linkButton('https://developer.mozilla.org/en-US/docs/Web')">
+                        MDN Reference
+                    </button>
+                    </td>
+                    <td class="tableCell"><button onclick="linkButton('https://www.w3schools.com/js/default.asp')">
+                        W3
+                    </button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+
+
 </body>
 </html>
