@@ -7,6 +7,8 @@ body {
     /* We color everything that's not the image */
     background-color: #314C43;
 
+    /* Somehow being able to select things cheapens my experience of the page.
+     * It's my page, so I can turn off selection if I want to >_< */
     user-select: none;
 }
 
@@ -59,9 +61,27 @@ main {
     overflow: auto;
 }
 
-.contentTable {
+.arrayContainer {
+    /* Sizes the content to 90% of the container */
     margin: 5%;
     width: 90%;
+
+    /* Child content will be displayed vertically */
+    display: flex;
+    flex-direction: column;
+}
+
+.arrayRow {
+    /* This ensures our content all stays on this line */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
+
+}
+
+.arraySeparator {
+    margin: 0px 2px;
 }
 
 .tableCell {
@@ -74,7 +94,6 @@ main {
 
 
 #mainTitleText {
-    text-align: center;
     font-size: 40px;
 }
 
