@@ -13,10 +13,9 @@ body {
 }
 
 * {
-
     /* Text settings */
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Georgia, Verdana, sans-serif;
+    font-family: 'Orbitron', 'Lucida Sans', Verdana, sans-serif;
 
 }
 
@@ -47,6 +46,10 @@ main {
     display: flex;
     justify-content: space-between;
 
+}
+
+h1 {
+    font-size: 40px;
 }
 
 .contentBox {
@@ -90,11 +93,6 @@ main {
 
 .sidebar {
     width: 300px;   
-}
-
-
-#mainTitleText {
-    font-size: 40px;
 }
 
 button {
