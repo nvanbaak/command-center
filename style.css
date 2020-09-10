@@ -19,12 +19,12 @@ body {
 
 }
 
-header {
-    /* Puts a bar across the top of the screen for the topbar to inhabit */
+/* header {
+    /* Puts a bar across the top of the screen for the topbar to inhabit 
     position: fixed;
     top: 50px;
     width: 100vw;
-}
+} */
 
 .topbar {
     /* Defines height and weight, and centers topbar inside parent container */
