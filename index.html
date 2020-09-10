@@ -22,15 +22,19 @@
 
 <body>
 
-<div class="container">
+<main class="container">
+
+    <!-- Title Card -->
     <div class="row">
         <div class="col"></div>
         <div class="col-8">
+
+            <!-- Code for actual card starts here -->
             <div class="card contentBox mt-5">
+                <!-- We use an image for the title to increase mobile responsiveness (on smaller screens the title wraps poorly) -->
                 <img src="./command-center-title.svg" alt="Command Center" class="card-img-top">
-                <!-- <div class="card-header">
-                    <h1>Command Center</h1>
-                </div> -->
+
+                <!-- Card body -->
                 <div class="card-body">
                     <br>
                     <p>Content here</p>
@@ -40,88 +44,84 @@
         <div class="col"></div>
     </div>
 
+    <!-- Secodn row is used for link arrays right now -->
+    <div class="row mt-5">
+        <div class="col-3">
 
-
-
-</div>
-
-    <!-- <header>
-        <div class="contentBox topbar">
-            <h1>Command Center</h1>
-            <hr>
-            <p></p>
+            <!-- Left sidebar -->
+            <div class="contentBox sidebar">
+                <h2 class="titleText">Projects</h2>
+                <hr>
+    
+                <section class="arrayContainer">
+                    <div class="arrayRow">
+                        
+                        <a href="https://wordpress.com/posts/theytoldmeiwasdifferent.wordpress.com">Blog</a>
+                        
+                        <div class=arraySeparator></div>
+    
+                        <a href="https://discord.com/channels/265670327814717440/747880312683364362">
+                            Blades</a>
+                    
+                    </div>
+    
+                    <div class="arrayRow">
+    
+                        <a href="https://docs.google.com/document/d/1yThoWJBh-pT0idgWHrBSak37_6rox43latoUmfDb52I/edit#heading=h.dzg74zx8p37l">Valdez</a>
+    
+                        <div class=arraySeparator></div>
+    
+                        <a href="https://docs.google.com/document/d/1XM25OtHL9QQy4rhpShbx7iewuA4nfrihAEaHKXmN1ZM/edit#">
+                            Road of Kings</a>
+                    </div>
+    
+                </section>
+            </div>
         </div>
-    </header> -->
+        <!-- This column currently empty -->
+        <div class="col-6"></div>
 
-    <main>
-        <div class="contentBox sidebar">
-            <h2 class="titleText">Projects</h2>
-            <hr>
-
-            <section class="arrayContainer">
-                <div class="arrayRow">
-                    
-                    <a href="https://wordpress.com/posts/theytoldmeiwasdifferent.wordpress.com">Blog</a>
-                    
-                    <div class=arraySeparator></div>
-
-                    <a href="https://discord.com/channels/265670327814717440/747880312683364362">
-                        Blades</a>
-                
+        <!-- Right sidebar -->
+        <div class="col-3">
+            <div class="contentBox sidebar">
+                    <h2 class=titleText>Quicklaunch</h2>
+                    <hr>
+            
+                    <section class="arrayContainer">
+                        <div class="arrayRow">
+                            
+                            <a href="https://bootcampspot.com/">
+                                BCS
+                            </a>
+                            
+                            <div class=arraySeparator></div>
+            
+                            <a href="https://github.com/nvanbaak?tab=repositories">
+                                Github
+                            </a>
+                        
+                        </div>
+            
+                        <div class="arrayRow">
+            
+                            <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/">
+                                Bootstrap
+                            </a>
+            
+                            <div class=arraySeparator></div>
+            
+                            <a href="https://www.w3schools.com/js/default.asp">
+                                W3
+                            </a>
+                        </div>
+            
+                    </section>
+            
                 </div>
+            </div>
+    </div>
 
-                <div class="arrayRow">
-
-                    <a href="https://docs.google.com/document/d/1yThoWJBh-pT0idgWHrBSak37_6rox43latoUmfDb52I/edit#heading=h.dzg74zx8p37l">Valdez</a>
-
-                    <div class=arraySeparator></div>
-
-                    <a href="https://docs.google.com/document/d/1XM25OtHL9QQy4rhpShbx7iewuA4nfrihAEaHKXmN1ZM/edit#">
-                        Road of Kings</a>
-                </div>
-
-            </section>
-        </div>
-
-
-    <div class="contentBox sidebar">
-            <h2 class=titleText>Quicklaunch</h2>
-            <hr>
-
-            <section class="arrayContainer">
-                <div class="arrayRow">
-                    
-                    <a href="https://bootcampspot.com/">
-                        BCS
-                    </a>
-                    
-                    <div class=arraySeparator></div>
-
-                    <a href="https://github.com/nvanbaak?tab=repositories">
-                        Github
-                    </a>
-                
-                </div>
-
-                <div class="arrayRow">
-
-                    <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/">
-                        Bootstrap
-                    </a>
-
-                    <div class=arraySeparator></div>
-
-                    <a href="https://www.w3schools.com/js/default.asp">
-                        W3
-                    </a>
-                </div>
-
-            </section>
-
-        </div>
-
-    </main>
-
+</main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
