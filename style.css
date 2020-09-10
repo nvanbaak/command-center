@@ -16,12 +16,15 @@ body {
     /* Text settings */
     text-align: center;
     font-family: 'Orbitron', 'Lucida Sans', Verdana, sans-serif;
-
 }
 
 
 h1 {
     font-size: 40px;
+}
+
+hr {
+    background-color: azure;
 }
 
 .contentBox {
@@ -67,9 +70,6 @@ h1 {
     width: 300px;   
 }
 
-button {
-    width: 100%;
-}
 
 a {
     /* Spacing commands */
