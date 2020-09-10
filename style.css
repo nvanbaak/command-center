@@ -16,40 +16,15 @@ body {
     /* Text settings */
     text-align: center;
     font-family: 'Orbitron', 'Lucida Sans', Verdana, sans-serif;
-
 }
 
-header {
-    /* Puts a bar across the top of the screen for the topbar to inhabit */
-    position: fixed;
-    top: 50px;
-    width: 100vw;
-}
-
-.topbar {
-    /* Defines height and weight, and centers topbar inside parent container */
-    margin: auto auto;
-    height: 200px;
-    width: 450px;
-}
-
-main {
-    /* This positions it below the initial position of the main bar */
-    position: relative;
-    top: 300px;
-
-    /* This code defines the space that child objects are positioned in */
-    margin: auto;
-    width: 90%;
-
-    /* We expect two children, so this puts on on either side of the screen */
-    display: flex;
-    justify-content: space-between;
-
-}
 
 h1 {
     font-size: 40px;
+}
+
+hr {
+    background-color: azure;
 }
 
 .contentBox {
@@ -95,9 +70,6 @@ h1 {
     width: 300px;   
 }
 
-button {
-    width: 100%;
-}
 
 a {
     /* Spacing commands */
