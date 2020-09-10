@@ -88,6 +88,8 @@ a {
     font-weight: normal;
 }
 
-a p {
-    font-size: 8;
+a:hover {
+    text-decoration: none;
+    color: black;
+    background: #dddddd;
 }
