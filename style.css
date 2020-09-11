@@ -1,6 +1,6 @@
 body {
     /* Set background as an image that covers the screen without repeating */
-    background-image: url(control-center.jpg);
+    background-image: url(assets/control-center.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
 
