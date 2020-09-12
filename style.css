@@ -39,6 +39,13 @@ hr {
     overflow: auto;
 }
 
+/* If the screen shrinks enough the boxes wrap, we center them */
+@media (max-width: 765px) {
+    .contentBox {
+        margin: 0px auto;
+    }
+}
+
 .arrayContainer {
     /* Sizes the content to 90% of the container */
     margin: 5%;
@@ -82,7 +89,7 @@ a {
     border-radius: 3px;
 
     /* Font settings */
-    font-size: 8;
+    font-size: 12px;
     color: black;
     text-decoration: none;
     font-weight: normal;
