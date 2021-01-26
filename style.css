@@ -39,6 +39,19 @@ hr {
     overflow: auto;
 }
 
+.midbar {
+    max-width: 35%;
+}
+
+.to-do-frame {
+    border-radius: 10px;    
+    background-color: #dddddd;
+    margin: 10px;
+    max-height: 200px;
+
+    overflow: scroll;
+}
+
 /* If the screen shrinks enough the boxes wrap, we center them */
 @media (max-width: 765px) {
     .contentBox {

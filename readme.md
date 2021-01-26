@@ -21,3 +21,11 @@ The settings menu should allow you to set both new windows and new tabs to open 
 ## What features are planned for Command Center?
 
 Eventually I'd like a to-do list widget that's editable in real time and preserves modifications even when reloading the page.
+
+## License
+
+Command Center uses the MIT license.
+
+## Check out the website!
+
+> https://nvanbaak.github.io/command-center/
