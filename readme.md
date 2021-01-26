@@ -4,17 +4,17 @@ That first open tab in your browser is a gateway to a multitude of websites.  Th
 
 **Current Version:** While eventually Command Center will be able to auto-populate its links for your convenience, this is an early build and the links are all hard-coded to things that are relevant to me.
 
-## How does it work?
+## Installation
 
-> Chrome
+### Chrome
 
-Command Center currently only works in conjunction with the <a href="https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna">New Tab Redirect</a> extension for Chrome.
+Currently the only way to have Command Center open by default is the [New Tab Redirect](https://nvanbaak.github.io/command-center/) extension.  The next best option is to define Command Center as the home button destination in Settings.
 
-> Firefox
+### Firefox
 
-You can set Command Center as your home page in the settings menu, but you only have this option for new windows.
+You can set the [deployed link](https://nvanbaak.github.io/command-center/) as your home page in the settings menu, but you only have this option for new windows.
 
-> Safari
+### Safari
 
 The settings menu should allow you to set both new windows and new tabs to open Command Center by default.
 
