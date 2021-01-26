@@ -35,8 +35,6 @@ hr {
     border-width: 3px;
     border-style: outset;
     box-shadow: 1px 1px 5px navy;
-
-    overflow: auto;
 }
 
 .midbar {
@@ -49,8 +47,16 @@ hr {
     margin: 10px;
     max-height: 200px;
 
-    overflow: scroll;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
+
+/* Hide scrollbar on to-do */
+.to-do-frame::-webkit-scrollbar {
+    display: none;
+}
+
+
 
 /* If the screen shrinks enough the boxes wrap, we center them */
 @media (max-width: 765px) {

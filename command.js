@@ -1,6 +1,13 @@
+// Global variables
+const titleContent = $(".title-content");
+const saveBtn = $("#saveBtn");
 
 
-function linkButton(url) {
-    //var dest = "https://" + url;
-    window.open(url);
-}
+// Save functionality
+saveBtn.click( event => {
+
+    localStorage.setItem("linkValues", "It works!")
+
+});
+
+// Load functionality
