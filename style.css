@@ -38,7 +38,7 @@ hr {
 }
 
 .midbar {
-    max-width: 35%;
+    width: 35%;
 }
 
 .to-do-frame {
@@ -62,6 +62,11 @@ hr {
 @media (max-width: 765px) {
     .contentBox {
         margin: 0px auto;
+    }
+
+    .midbar {
+        width: auto;
+        margin: auto 10px;
     }
 }
 
