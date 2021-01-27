@@ -9,6 +9,9 @@ const toDoArr = []
 loadToDos();
 populateToDo();
 
+// Normally the workflow makes sure the error bar is only visible when it's supposed to be there, but the first time we have to hide it manually
+$("#task-error").hide();
+
 // Allow to-do checkboxes to remove item from list
 toDoFrame.click( event => {
 
@@ -52,6 +55,11 @@ saveTaskBtn.click( event => {
             toDoArr.push({text:taskText, date:taskDate});
         }
 
+        testDate = new Date(taskDate);
+
+        console.log(taskText);
+        console.log(testDate);
+
         // Save to localstorage
         saveToDos();
 
@@ -62,7 +70,7 @@ saveTaskBtn.click( event => {
         $("#new-task-modal").modal('hide');
 
     } else {
-        // Make sure the error bar is visiable and empty
+        // Make sure the error bar is visible and empty
         $("#task-error").show().empty();
 
         // Give error message if there was no task name
@@ -121,8 +129,8 @@ function addToDo( toDoObj, index ) {
 
     const objDate = new Date(toDoObj.date)
 
-    let month = objDate.getMonth() + 1
-    let dayNum = objDate.getDate()
+    let month = objDate.getUTCMonth() + 1
+    let dayNum = objDate.getUTCDate()
     let dateStr = `${month}/${dayNum}`
 
     // Adds the content of the to-do item
