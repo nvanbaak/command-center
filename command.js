@@ -1,6 +1,5 @@
 // Global variables
 const titleContent = $(".title-content");
-const saveBtn = $("#saveBtn");
 const loadBtn = $("#loadBtn");
 const toDoFrame = $(".to-do-frame");
 const toDoArr = []
@@ -23,13 +22,6 @@ toDoFrame.click( event => {
         saveToDos();
         populateToDo();
     }
-});
-
-// Save functionality
-saveBtn.click( event => {
-
-    saveToDos();
-
 });
 
 // Load functionality
