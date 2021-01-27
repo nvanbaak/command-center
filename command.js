@@ -16,16 +16,12 @@ toDoFrame.click( event => {
     if ( item.hasClass("task-done") ) {
 
         index = item.attr("data-index");
-        console.log(index);
 
         toDoArr.splice(index, 1)
 
         populateToDo()
-
     }
 });
-
-
 
 // Save functionality
 saveBtn.click( event => {
