@@ -124,3 +124,22 @@ a:hover {
     color: black;
     background: #dddddd;
 }
+
+.toDoBr {
+    background-color: black
+}
+
+.toDoText {
+    font-size: small;
+
+}
+
+.toDoSection {
+    margin: auto;
+    width: 90%;
+}
+
+ /* Adds a border if there was a to-do item above it*/
+.toDoSection ~ .toDoSection {
+    border-top: 1px solid olive;
+}
