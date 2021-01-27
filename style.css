@@ -131,15 +131,23 @@ a:hover {
 
 .toDoText {
     font-size: small;
-
 }
 
 .toDoSection {
     margin: auto;
     width: 90%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
  /* Adds a border if there was a to-do item above it*/
 .toDoSection ~ .toDoSection {
     border-top: 1px solid olive;
+}
+
+.task-done {
+    margin: 5px;
 }

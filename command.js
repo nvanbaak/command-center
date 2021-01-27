@@ -3,12 +3,22 @@ const titleContent = $(".title-content");
 const saveBtn = $("#saveBtn");
 const loadBtn = $("#loadBtn");
 const toDoFrame = $(".to-do-frame");
-const toDoArr = [{text:"example item", date:Date.now()},{text:"example 2", date:Date.now()},{text:"other example", date:Date.now()},{text:"buy groceries", date:Date.now()}]
+const toDoArr = [{text:"example item", date:Date.now()},{text:"example 2 which has a really long name so let's see what happens", date:Date.now()},{text:"", date:Date.now()},{text:"buy groceries", date:Date.now()}]
 
-for (let i = 0; i < toDoArr.length; i++) {
-    addToDo(toDoArr[i], i)
-}
+// Before we do anything else, populate the to-do list
+populateToDo();
 
+// Allow to-do checkboxes to remove them from list
+toDoFrame.click( event => {
+
+    item = $(event.target)
+
+    if ( item.hasClass("task-done") ) {
+
+
+
+    }
+});
 
 
 
@@ -26,7 +36,7 @@ loadBtn.click( event => {
         $("<p>",{"text":localStorage.getItem("linkValues")})
     )
 
-})
+});
 
 // function to add a to-do item to the upcoming tasks list
 function addToDo( toDoObj, index ) {
@@ -47,11 +57,23 @@ function addToDo( toDoObj, index ) {
     let dayNum = objDate.getDate()
     let dateStr = `${month}/${dayNum}`
 
-
+    // Adds the content of the to-do item
     entryDiv.append(
-            `<span class="toDoText">${toDoObj.text} — ${dateStr}</span>`)
-        // .append( $("<br>",{"class":"toDoBr"}));
+            `<span class="toDoText">${toDoObj.text} — ${dateStr}</span>`);
+
+    // Adds a button which will be used to remove the task from the list
+    entryDiv.append( `<button type="button" data-index="${index}" class="task-done btn btn-success" aria-label="task complete">
+        <span aria-hidden="true">&check;</span>
+        </button>`
+      );
 
     // Attach div to frame
     toDoFrame.append(entryDiv);
+}
+
+// function to populate the to-do list
+function populateToDo() {
+    for (let i = 0; i < toDoArr.length; i++) {
+        addToDo(toDoArr[i], i)
+    }
 }
