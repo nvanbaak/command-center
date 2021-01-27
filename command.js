@@ -11,11 +11,16 @@ populateToDo();
 // Allow to-do checkboxes to remove them from list
 toDoFrame.click( event => {
 
-    item = $(event.target)
+    item = $(event.target);
 
     if ( item.hasClass("task-done") ) {
 
+        index = item.attr("data-index");
+        console.log(index);
 
+        toDoArr.splice(index, 1)
+
+        populateToDo()
 
     }
 });
@@ -51,8 +56,6 @@ function addToDo( toDoObj, index ) {
 
     const objDate = new Date(toDoObj.date)
 
-    console.log(objDate);
-
     let month = objDate.getMonth() + 1
     let dayNum = objDate.getDate()
     let dateStr = `${month}/${dayNum}`
@@ -63,7 +66,7 @@ function addToDo( toDoObj, index ) {
 
     // Adds a button which will be used to remove the task from the list
     entryDiv.append( `<button type="button" data-index="${index}" class="task-done btn btn-success" aria-label="task complete">
-        <span aria-hidden="true">&check;</span>
+        <span class="task-done" data-index="${index}" aria-hidden="true">&check;</span>
         </button>`
       );
 
@@ -73,6 +76,9 @@ function addToDo( toDoObj, index ) {
 
 // function to populate the to-do list
 function populateToDo() {
+
+    toDoFrame.empty()
+
     for (let i = 0; i < toDoArr.length; i++) {
         addToDo(toDoArr[i], i)
     }
