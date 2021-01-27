@@ -3,12 +3,13 @@ const titleContent = $(".title-content");
 const saveBtn = $("#saveBtn");
 const loadBtn = $("#loadBtn");
 const toDoFrame = $(".to-do-frame");
-const toDoArr = [{text:"example item", date:Date.now()},{text:"example 2 which has a really long name so let's see what happens", date:Date.now()},{text:"", date:Date.now()},{text:"buy groceries", date:Date.now()}]
+const toDoArr = []
 
 // Before we do anything else, populate the to-do list
+loadToDos();
 populateToDo();
 
-// Allow to-do checkboxes to remove them from list
+// Allow to-do checkboxes to remove item from list
 toDoFrame.click( event => {
 
     item = $(event.target);
@@ -17,16 +18,17 @@ toDoFrame.click( event => {
 
         index = item.attr("data-index");
 
-        toDoArr.splice(index, 1)
+        toDoArr.splice(index, 1);
 
-        populateToDo()
+        saveToDos();
+        populateToDo();
     }
 });
 
 // Save functionality
 saveBtn.click( event => {
 
-    localStorage.setItem("linkValues", "It works!")
+    saveToDos();
 
 });
 
@@ -38,6 +40,27 @@ loadBtn.click( event => {
     )
 
 });
+
+
+
+
+function saveToDos() {
+
+    localStorage.setItem("toDoValues", JSON.stringify(toDoArr))
+
+}
+
+function loadToDos() {
+
+    storedValues = JSON.parse(localStorage.getItem("toDoValues"));
+
+    for (value in storedValues) {
+
+        toDoArr.push(storedValues[value]);
+
+    }
+
+}
 
 // function to add a to-do item to the upcoming tasks list
 function addToDo( toDoObj, index ) {
