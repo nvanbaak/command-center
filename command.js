@@ -2,6 +2,7 @@
 const titleContent = $(".title-content");
 const loadBtn = $("#loadBtn");
 const toDoFrame = $(".to-do-frame");
+const saveTaskBtn = $("#saveTaskBtn");
 const toDoArr = []
 
 // Before we do anything else, populate the to-do list
@@ -22,6 +23,60 @@ toDoFrame.click( event => {
         saveToDos();
         populateToDo();
     }
+});
+
+// Check if a task is valid, then add it to todo array if so
+saveTaskBtn.click( event => {
+
+    let taskText = $("#task-entry").val();
+    let taskDate = $("#due-date-entry").val();
+
+    if (taskText && taskDate) {
+
+        // Push new task to the array
+        let pushedToArray = false
+
+        for (item in toDoArr) {
+            // Comparing the dates means the new todo gets inserted when it hits the first todo with a longer due date
+            if (taskDate < toDoArr[item].date) {
+                toDoArr.splice(item, 0, {text:taskText, date:taskDate});
+
+                // Then we mark that it's been inserted and break the loop
+                pushedToArray = true;
+                break;
+            }
+        }
+
+        // If we haven't inserted it, it's larger than the rest of the dates, so it goes to the end
+        if (!pushedToArray) {
+            toDoArr.push({text:taskText, date:taskDate});
+        }
+
+        // Save to localstorage
+        saveToDos();
+
+        // populate todos
+        populateToDo();
+
+        // Close modal
+        $("#new-task-modal").modal('hide');
+
+    } else {
+        // Make sure the error bar is visiable and empty
+        $("#task-error").show().empty();
+
+        // Give error message if there was no task name
+        if (!taskText) {
+            $("#task-error").append($("<p>",{"text":"Please name your task."}));
+        }
+
+        // Give error message if there was no due date
+        if (!taskDate) {
+            $("#task-error").append($("<p>",{"text":"Please enter a due date."}));
+        }
+    }
+
+
 });
 
 // Load functionality

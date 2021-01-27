@@ -36,9 +36,8 @@
                 <!-- Card body -->
                 <div class="card-body border-top title-content">
                     <br>
-                    <button type="button" class="btn btn-light" id="saveBtn">Save content to localstorage</button>
                     <button type="button" class="btn btn-light" id="loadBtn">Load content from localstorage</button>
-                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#new-task-modal"  id="taskBtn">New Task</button>
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#new-task-modal"  id="taskBtn" onclick="">New Task</button>
                 </div>
             </div>
         </div>
@@ -57,6 +56,8 @@
                 </div>
                 <div class="modal-body">
 
+                    <div class="alert alert-danger" role=alert id="task-error"></div>
+
                     <input type="text" id="task-entry" placeholder="Task">
                     <label for="task-entry">Name of task</label>
 
@@ -65,7 +66,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success"><b>+</b></button>
+                    <button type="button" class="btn btn-success" id="saveTaskBtn"><b>+</b></button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
             </div>
