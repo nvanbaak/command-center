@@ -35,23 +35,22 @@ saveBtn.click( event => {
 // Load functionality
 loadBtn.click( event => {
 
-    titleContent.append(
-        $("<p>",{"text":localStorage.getItem("linkValues")})
-    )
+    loadToDos();
+    populateToDo();
 
 });
 
-
-
-
+// Saves the local to-do array to localstorage
 function saveToDos() {
 
     localStorage.setItem("toDoValues", JSON.stringify(toDoArr))
 
 }
 
+// Loads to-dos from localstorage
 function loadToDos() {
 
+    toDoArr.length = 0;
     storedValues = JSON.parse(localStorage.getItem("toDoValues"));
 
     for (value in storedValues) {
@@ -96,7 +95,7 @@ function addToDo( toDoObj, index ) {
 // function to populate the to-do list
 function populateToDo() {
 
-    toDoFrame.empty()
+    toDoFrame.empty();
 
     for (let i = 0; i < toDoArr.length; i++) {
         addToDo(toDoArr[i], i)
