@@ -1,9 +1,9 @@
 // Global variables
 const titleContent = $(".title-content");
-const loadBtn = $("#loadBtn");
 const toDoFrame = $(".to-do-frame");
 const saveTaskBtn = $("#saveTaskBtn");
 const toDoArr = []
+const newTaskModal = $("#new-task-modal")
 
 // Before we do anything else, populate the to-do list
 loadToDos();
@@ -26,6 +26,17 @@ toDoFrame.click( event => {
         saveToDos();
         populateToDo();
     }
+});
+
+// Clear modal when closed
+newTaskModal.on("hide.bs.modal", event => {
+
+    // clear input fields
+    $("#task-entry").val('');
+    $("#due-date-entry").val('');
+
+    // the alert bar is cleared whenever it's displayed, so we only have to hide it
+    $("#task-error").hide()
 });
 
 // Check if a task is valid, then add it to todo array if so
@@ -55,11 +66,6 @@ saveTaskBtn.click( event => {
             toDoArr.push({text:taskText, date:taskDate});
         }
 
-        testDate = new Date(taskDate);
-
-        console.log(taskText);
-        console.log(testDate);
-
         // Save to localstorage
         saveToDos();
 
@@ -84,14 +90,6 @@ saveTaskBtn.click( event => {
         }
     }
 
-
-});
-
-// Load functionality
-loadBtn.click( event => {
-
-    loadToDos();
-    populateToDo();
 
 });
 
