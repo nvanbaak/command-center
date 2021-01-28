@@ -40,6 +40,10 @@ toDoFrame.click( event => {
 
         // Update the save button with the index
         editTaskBtn.attr("data-index",index);
+        
+        // Update edit window with task information
+        $("#task-edit").val(toDoArr[index].text)
+        $("#due-date-edit").val(toDoArr[index].date)
     }
 });
 
@@ -90,9 +94,15 @@ editTaskBtn.click( event => {
     let taskText = $("#task-edit").val();
     let taskDate = $("#due-date-edit").val();
 
+    // get index value
+    let index = $(event.target).attr("data-index");
+
     // add to array if we have all the information we need, otherwise make an alert
     if (taskText && taskDate) {
 
+        // Delete item at index value, then add the edited version
+        // We do it this way instead of just replacing it with the splice because if we changed the date we'll need to reposition the item in the to-do list
+        toDoArr.splice(index, 1);
         addToTaskArray(taskText, taskDate);
 
         // Close modal
