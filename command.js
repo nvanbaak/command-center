@@ -1,22 +1,25 @@
 // Global variables
 const titleContent = $(".title-content");
+const toDoArr = []
 const toDoFrame = $(".to-do-frame");
 const saveTaskBtn = $("#saveTaskBtn");
-const toDoArr = []
+const editTaskBtn = $("#editTaskBtn");
 const newTaskModal = $("#new-task-modal")
+const EditTaskModal = $("#edit-task-modal")
 
 // Before we do anything else, populate the to-do list
 loadToDos();
 populateToDo();
 
-// Normally the workflow makes sure the error bar is only visible when it's supposed to be there, but the first time we have to hide it manually
+// Normally the workflow makes sure error bars are only visible when they're supposed to be there, but the first time we have to hide them manually
 $("#task-error").hide();
+$("#edit-task-error").hide();
 
-// Allow to-do checkboxes to remove item from list
+// Click behavior for to-do items
 toDoFrame.click( event => {
-
     item = $(event.target);
 
+    // If they click the done button, remove the item
     if ( item.hasClass("task-done") ) {
 
         index = item.attr("data-index");
@@ -25,6 +28,18 @@ toDoFrame.click( event => {
 
         saveToDos();
         populateToDo();
+
+    } 
+    // If they click the text, edit the item
+    else if (item.hasClass('toDoText')) {
+
+        index = item.attr("data-index");
+
+        // Open edit modal
+        EditTaskModal.modal('show');
+
+        // Update the save button with the index
+        editTaskBtn.attr("data-index",index);
     }
 });
 
@@ -45,32 +60,10 @@ saveTaskBtn.click( event => {
     let taskText = $("#task-entry").val();
     let taskDate = $("#due-date-entry").val();
 
+    // add to array if we have all the information we need, otherwise make an alert
     if (taskText && taskDate) {
 
-        // Push new task to the array
-        let pushedToArray = false
-
-        for (item in toDoArr) {
-            // Comparing the dates means the new todo gets inserted when it hits the first todo with a longer due date
-            if (taskDate < toDoArr[item].date) {
-                toDoArr.splice(item, 0, {text:taskText, date:taskDate});
-
-                // Then we mark that it's been inserted and break the loop
-                pushedToArray = true;
-                break;
-            }
-        }
-
-        // If we haven't inserted it, it's larger than the rest of the dates, so it goes to the end
-        if (!pushedToArray) {
-            toDoArr.push({text:taskText, date:taskDate});
-        }
-
-        // Save to localstorage
-        saveToDos();
-
-        // populate todos
-        populateToDo();
+        addToTaskArray(taskText, taskDate);
 
         // Close modal
         $("#new-task-modal").modal('hide');
@@ -89,9 +82,67 @@ saveTaskBtn.click( event => {
             $("#task-error").append($("<p>",{"text":"Please enter a due date."}));
         }
     }
-
-
 });
+
+editTaskBtn.click( event => {
+
+    // get new values
+    let taskText = $("#task-edit").val();
+    let taskDate = $("#due-date-edit").val();
+
+    // add to array if we have all the information we need, otherwise make an alert
+    if (taskText && taskDate) {
+
+        addToTaskArray(taskText, taskDate);
+
+        // Close modal
+        $("#edit-task-modal").modal('hide');
+
+    } else {
+        // Make sure the error bar is visible and empty
+        $("#edit-task-error").show().empty();
+
+        // Give error message if there was no task name
+        if (!taskText) {
+            $("#edit-task-error").append($("<p>",{"text":"Please name your task."}));
+        }
+
+        // Give error message if there was no due date
+        if (!taskDate) {
+            $("#edit-task-error").append($("<p>",{"text":"Please enter a due date."}));
+        }
+    }
+});
+
+
+// function to add a task to toDoArr
+function addToTaskArray(taskText, taskDate) {
+
+    // It's not in the array to start
+    let pushedToArray = false
+
+    for (item in toDoArr) {
+        // Comparing the dates means the new todo gets inserted when it hits the first todo with a longer due date
+        if (taskDate < toDoArr[item].date) {
+            toDoArr.splice(item, 0, {text:taskText, date:taskDate});
+
+            // Then we mark that it's been inserted and break the loop
+            pushedToArray = true;
+            break;
+        }
+    }
+
+    // If we haven't inserted it, it's larger than the rest of the dates, so it goes to the end
+    if (!pushedToArray) {
+        toDoArr.push({text:taskText, date:taskDate});
+    }
+
+    // Save to localstorage
+    saveToDos();
+
+    // populate todos
+    populateToDo();
+}
 
 // Saves the local to-do array to localstorage
 function saveToDos() {
@@ -133,7 +184,7 @@ function addToDo( toDoObj, index ) {
 
     // Adds the content of the to-do item
     entryDiv.append(
-            `<span class="toDoText">${toDoObj.text} — ${dateStr}</span>`);
+            `<span data-index="${index}" class="toDoText">${toDoObj.text} — ${dateStr}</span>`);
 
     // Adds a button which will be used to remove the task from the list
     entryDiv.append( `<button type="button" data-index="${index}" class="task-done btn btn-success" aria-label="task complete">
