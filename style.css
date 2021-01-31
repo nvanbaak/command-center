@@ -121,10 +121,18 @@ a {
     font-weight: normal;
 }
 
+.evil-link {
+    background-color: #ffadad;
+}
+
 a:hover {
     text-decoration: none;
     color: black;
     background: #dddddd;
+}
+
+.evil-link:hover {
+    background-color: #ee9c9c;
 }
 
 .toDoBr {

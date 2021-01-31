@@ -32,7 +32,6 @@ $("#shortcut-btn").click( event=> {
     $("#linkBtn").attr("data-sidebar", "shortcut")
 });
 
-
 // Add link to sidebar when save button pressed
 $("#linkBtn").click( event => {
 
@@ -105,8 +104,6 @@ $("#link-modal").on("hide.bs.modal", event => {
 
     // hide alert
     $("#link-error").hide();
-
-
 });
 
 // Adds the given links in a grid format
@@ -144,4 +141,36 @@ function populateLinks(appendHere, givenArray) {
 
 
 
+}
+
+$("#project-del").click( event => {
+
+    evilPopulate(projectLinks, projectLinkArr);
+
+})
+
+// Replaces the links in the selected sidebar with links that delete their reference in the array
+function evilPopulate(appendHere, givenArray) {
+
+    appendHere.empty();
+
+    for ( let link = 0; link <= givenArray.length; link += 2) {
+
+        // This function uses basically the same logic as the regular populate function; we're just adding a different kind of link
+        let newRow = $("<div>", {"class":"arrayRow"});
+        appendHere.append(newRow);
+
+        newRow.append(
+            $("<a>", {"text":givenArray[link].text, "class":"evil-link","data-index":link})
+        )
+
+        // If there's more than one link in this row, append the second one
+        console.log(givenArray.length - link);
+        if ( (givenArray.length - link) > 1 ) {
+
+            newRow.append($("<div>", {"class":"arraySeparator"}))
+
+            newRow.append($("<a>", {"text":givenArray[link+1].text, "class":"evil-link","data-index":link}));
+        }
+    }
 }
