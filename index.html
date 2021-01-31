@@ -36,7 +36,7 @@
                 <!-- Card body -->
                 <div class="card-body border-top title-content">
                     <br>
-                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#new-task-modal"  id="taskBtn" onclick="">New Task</button>
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#new-task-modal" id="taskBtn" >New Task</button>
                 </div>
             </div>
         </div>
@@ -113,10 +113,10 @@
 
                     <div class="alert alert-danger" role=alert id="link-error"></div>
 
-                    <input type="text" id="link-name" placeholder="Best eggplant muffin recipes">
+                    <input type="text" id="link-name" placeholder="tactical eggbeaters">
                     <label for="link-name">Name of link</label>
                     
-                    <input type="text" id="link-href" placeholder="www.culinarygenevaconvention.com">
+                    <input type="text" id="link-href" placeholder="www.waronfood.com">
                     <label for="link-href">URL</label>
 
                 </div>
@@ -135,7 +135,7 @@
         <div class="contentBox sidebar">
             <div class="d-flex">
                 <h2 class="titleText m-auto">Projects</h2>
-                <button type="button" id="project-btn" class="btn btn-light mr-2 mt-1">&plus;</button>
+                <button type="button" id="project-btn" class="btn btn-light mr-2 mt-1" data-toggle="modal" data-target="#link-modal">&plus;</button>
             </div>
             <hr>
 
@@ -151,27 +151,29 @@
 
         <!-- Right sidebar -->
         <div class="contentBox sidebar">
-                <h2 class=titleText>Quicklaunch</h2>
-                <hr>
-        
-                <section class="arrayContainer" id="launch-tab">
-                    <div class="arrayRow">
-                        
-                        <a href="https://bootcampspot.com/">
-                            BCS
-                        </a>
-                        
-                        <div class=arraySeparator></div>
-        
-                        <a href="https://fonts.google.com/">
-                            Google Fonts
-                        </a>
-                    
-                    </div>
-        
-                </section>
-        
+            <div class="d-flex">
+                <h2 class="titleText m-auto">Shortcuts</h2>
+                <button type="button" id="shortcut-btn" class="btn btn-light mr-2 mt-1">&plus;</button>
             </div>
+            <hr>
+        
+            <section class="arrayContainer" id="launch-tab">
+                <div class="arrayRow">
+                    
+                    <a href="https://bootcampspot.com/">
+                        BCS
+                    </a>
+                    
+                    <div class=arraySeparator></div>
+    
+                    <a href="https://fonts.google.com/">
+                        Google Fonts
+                    </a>
+                
+                </div>
+    
+            </section>
+        
         </div>
     </div>
 

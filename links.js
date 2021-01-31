@@ -12,6 +12,55 @@ populateLinks(launchLinks, launchLinkArr);
 // Hide alerts on link modal
 $("#link-error").hide();
 
+// Add link to sidebar when save button pressed
+$("#linkBtn").click( event => {
+
+    // get info from modal
+    let linkName = $("#link-name").val();
+    let linkHref = $("#link-href").val();
+
+    // make sure both fields are filled in
+    if (linkName && linkName) {
+
+        // Check if they included the https://
+        if ( !linkHref.startsWith("http") ) {
+            // if not, we add it
+            linkHref = "https://" + linkHref;
+        }
+
+        // add link info to array
+        projectLinkArr.push({text:linkName, href:linkHref});
+
+        // reload sidebar
+        projectLinks.empty();
+        populateLinks(projectLinks, projectLinkArr);
+
+        // close modal
+        $("#link-modal").modal('hide');
+
+    } 
+    // Otherwise fire the error alert
+    else {
+
+        // Make sure the error bar is visible and empty
+        $("#link-error").show().empty();
+
+        // Give error message if there was no link name
+        if (!linkName) {
+            $("#link-error").append($("<p>",{"text":"Please name your link."}));
+        }
+
+        // Give error message if there was URL
+        if (!linkHref) {
+            $("#link-error").append($("<p>",{"text":"Your link needs a URL!"}));
+        }
+    }
+
+})
+
+
+
+
 // Adds the given links in a grid format
 function populateLinks(appendHere, givenArray) {
 
