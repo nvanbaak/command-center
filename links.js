@@ -9,11 +9,19 @@ const launchLinkArr = [{text:"Github",href:"https://github.com/nvanbaak"},{text:
 populateLinks(projectLinks, projectLinkArr);
 populateLinks(launchLinks, launchLinkArr);
 
-
-
-
-// Hide alerts on link modal
+// Hide alerts on link modal for initial use
 $("#link-error").hide();
+
+// Point modal at project sidebar when project button is clicked
+$("#project-btn").click( event=> {
+
+    // Rename modal
+    $("#link-title").text("Add Project Link")
+
+    // add data attribute to save button
+    $("#linkBtn").attr("data-sidebar", "project")
+});
+
 
 // Add link to sidebar when save button pressed
 $("#linkBtn").click( event => {
@@ -21,6 +29,8 @@ $("#linkBtn").click( event => {
     // get info from modal
     let linkName = $("#link-name").val();
     let linkHref = $("#link-href").val();
+
+    let appendTarget = $("#linkBtn").attr("data-sidebar")
 
     // make sure both fields are filled in
     if (linkName && linkName) {
@@ -31,16 +41,31 @@ $("#linkBtn").click( event => {
             linkHref = "https://" + linkHref;
         }
 
+        let targetTable;
+        let targetSidebar;
+
+        // Point to the correct sidebar
+        if (appendTarget === "project") {
+
+            targetTable = projectLinkArr;
+            targetSidebar = projectLinks;
+
+        } else if (appendTarget === "shortcut") {
+
+            targetTable = launchLinkArr
+            targetSidebar = launchLinks
+
+        } 
+
         // add link info to array
-        projectLinkArr.push({text:linkName, href:linkHref});
+        targetTable.push({text:linkName, href:linkHref});
 
         // reload sidebar
-        projectLinks.empty();
-        populateLinks(projectLinks, projectLinkArr);
+        targetSidebar.empty();
+        populateLinks(targetSidebar, targetTable);
 
         // close modal
         $("#link-modal").modal('hide');
-
     } 
     // Otherwise fire the error alert
     else {
@@ -53,13 +78,13 @@ $("#linkBtn").click( event => {
             $("#link-error").append($("<p>",{"text":"Please name your link."}));
         }
 
-        // Give error message if there was URL
+        // Give error message if there was no URL
         if (!linkHref) {
             $("#link-error").append($("<p>",{"text":"Your link needs a URL!"}));
         }
     }
 
-})
+});
 
 // reset link modal when closed
 $("#link-modal").on("hide.bs.modal", event => {
@@ -72,7 +97,7 @@ $("#link-modal").on("hide.bs.modal", event => {
     $("#link-error").hide();
 
 
-})
+});
 
 // Adds the given links in a grid format
 function populateLinks(appendHere, givenArray) {
