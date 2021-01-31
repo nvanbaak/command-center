@@ -39,6 +39,8 @@ hr {
 
 .midbar {
     width: 35%;
+    padding-top: 5px;
+
 }
 
 .to-do-frame {
@@ -86,7 +88,6 @@ hr {
     flex-direction: row;
     justify-content: space-between;
     margin: 3px 0px;
-
 }
 
 .arraySeparator {
@@ -99,6 +100,7 @@ hr {
 
 .sidebar {
     width: 300px;   
+    padding-top: 5px;
 }
 
 

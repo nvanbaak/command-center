@@ -5,8 +5,12 @@ const projectLinkArr = [{text:"Command Center",href:"https://github.com/nvanbaak
 
 const launchLinkArr = [{text:"Github",href:"https://github.com/nvanbaak"},{text:"Bootstrap Docs",href:"https://getbootstrap.com/docs/4.5/getting-started/introduction/"},{text:"LinkedIn",href:"https://www.linkedin.com/in/nick-van-baak/"},{text:"Portfolio",href:"https://nvanbaak.github.io/profile-page/"}]
 
+// Populate the links first
 populateLinks(projectLinks, projectLinkArr);
 populateLinks(launchLinks, launchLinkArr);
+
+// Hide alerts on link modal
+$("#link-error").hide();
 
 // Adds the given links in a grid format
 function populateLinks(appendHere, givenArray) {
