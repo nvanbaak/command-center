@@ -9,6 +9,9 @@ const launchLinkArr = [{text:"Github",href:"https://github.com/nvanbaak"},{text:
 populateLinks(projectLinks, projectLinkArr);
 populateLinks(launchLinks, launchLinkArr);
 
+
+
+
 // Hide alerts on link modal
 $("#link-error").hide();
 
@@ -58,8 +61,18 @@ $("#linkBtn").click( event => {
 
 })
 
+// reset link modal when closed
+$("#link-modal").on("hide.bs.modal", event => {
+
+    // Clear inputs
+    $("#link-name").val("");
+    $("#link-href").val("");
+
+    // hide alert
+    $("#link-error").hide();
 
 
+})
 
 // Adds the given links in a grid format
 function populateLinks(appendHere, givenArray) {
