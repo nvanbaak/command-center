@@ -22,6 +22,16 @@ $("#project-btn").click( event=> {
     $("#linkBtn").attr("data-sidebar", "project")
 });
 
+// Point modal at launch sidebar when its add button is clicked
+$("#shortcut-btn").click( event=> {
+
+    // Rename modal
+    $("#link-title").text("Add Shortcut")
+
+    // add data attribute to save button
+    $("#linkBtn").attr("data-sidebar", "shortcut")
+});
+
 
 // Add link to sidebar when save button pressed
 $("#linkBtn").click( event => {
