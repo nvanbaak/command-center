@@ -109,6 +109,8 @@ $("#link-modal").on("hide.bs.modal", event => {
 // Adds the given links in a grid format
 function populateLinks(appendHere, givenArray) {
 
+    appendHere.empty();
+
     let remainingLinks = givenArray.length;
 
     for (let i = 0; i < givenArray.length; i += 2) {
@@ -135,17 +137,28 @@ function populateLinks(appendHere, givenArray) {
         // Count down the remaining links
         remainingLinks -= 2;
     }
-
-
-
-
-
-
 }
 
 $("#project-del").click( event => {
 
-    evilPopulate(projectLinks, projectLinkArr);
+    if ( $("#project-del").attr("data-delmode") === "true") {
+
+        $("#project-del").text("⊘");
+        $("#project-del").attr("data-delmode", "false");
+        $("#project-del").removeClass("btn-success");
+        $("#project-del").addClass("btn-warning");
+
+        populateLinks(projectLinks, projectLinkArr);
+
+    } else {
+
+        $("#project-del").text("🗸");
+        $("#project-del").attr("data-delmode", "true");
+        $("#project-del").removeClass("btn-warning");
+        $("#project-del").addClass("btn-success");
+
+        evilPopulate(projectLinks, projectLinkArr);
+    }
 
 })
 
@@ -165,7 +178,6 @@ function evilPopulate(appendHere, givenArray) {
         )
 
         // If there's more than one link in this row, append the second one
-        console.log(givenArray.length - link);
         if ( (givenArray.length - link) > 1 ) {
 
             newRow.append($("<div>", {"class":"arraySeparator"}))
@@ -174,3 +186,18 @@ function evilPopulate(appendHere, givenArray) {
         }
     }
 }
+
+// project link removal functionality
+projectLinks.click(event => {
+
+    if ($(event.target).hasClass("evil-link")) {
+
+        // delete the link with the specified index from the array
+        let index = $(event.target).attr("data-index");
+        console.log(index);
+        projectLinkArr.splice(index, 1);
+
+        // refresh the sidebar with delete links
+        evilPopulate(projectLinks,projectLinkArr);
+    }
+})
