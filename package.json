@@ -1,0 +1,23 @@
+{
+  "name": "command-center",
+  "version": "1.0.0",
+  "description": "That first open tab in your browser is a gateway to a multitude of websites.  The paths to each of these websites are varied: some require navigating the bookmarks menu, others require typing enough text that the browser can autcomplete the address, and some you just have to search for.  Command Center is just a way to collect those websites into easily clickable links, streamlining the web surfing process.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvanbaak/command-center.git"
+  },
+  "author": "nvb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvanbaak/command-center/issues"
+  },
+  "homepage": "https://github.com/nvanbaak/command-center#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  }
+}
