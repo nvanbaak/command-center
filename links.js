@@ -139,29 +139,6 @@ function populateLinks(appendHere, givenArray) {
     }
 }
 
-$("#project-del").click( event => {
-
-    if ( $("#project-del").attr("data-delmode") === "true") {
-
-        $("#project-del").text("⊘");
-        $("#project-del").attr("data-delmode", "false");
-        $("#project-del").removeClass("btn-success");
-        $("#project-del").addClass("btn-warning");
-
-        populateLinks(projectLinks, projectLinkArr);
-
-    } else {
-
-        $("#project-del").text("🗸");
-        $("#project-del").attr("data-delmode", "true");
-        $("#project-del").removeClass("btn-warning");
-        $("#project-del").addClass("btn-success");
-
-        evilPopulate(projectLinks, projectLinkArr);
-    }
-
-})
-
 // Replaces the links in the selected sidebar with links that delete their reference in the array
 function evilPopulate(appendHere, givenArray) {
 
@@ -200,4 +177,67 @@ projectLinks.click(event => {
         // refresh the sidebar with delete links
         evilPopulate(projectLinks,projectLinkArr);
     }
+})
+
+// When delete button is clicked, switch between delete mode and normal mode
+$("#project-del").click( event => {
+
+    if ( $("#project-del").attr("data-delmode") === "true") {
+
+        $("#project-del").text("⊘");
+        $("#project-del").attr("data-delmode", "false");
+        $("#project-del").removeClass("btn-success");
+        $("#project-del").addClass("btn-warning");
+
+        populateLinks(projectLinks, projectLinkArr);
+
+    } else {
+
+        $("#project-del").text("🗸");
+        $("#project-del").attr("data-delmode", "true");
+        $("#project-del").removeClass("btn-warning");
+        $("#project-del").addClass("btn-success");
+
+        evilPopulate(projectLinks, projectLinkArr);
+    }
+
+})
+
+// launch link removal functionality
+launchLinks.click(event => {
+
+    if ($(event.target).hasClass("evil-link")) {
+
+        // delete the link with the specified index from the array
+        let index = $(event.target).attr("data-index");
+        console.log(index);
+        launchLinkArr.splice(index, 1);
+
+        // refresh the sidebar with delete links
+        evilPopulate(launchLinks,launchLinkArr);
+    }
+})
+
+// When delete button is clicked, switch between delete mode and normal mode
+$("#shortcut-del").click( event => {
+
+    if ( $("#shortcut-del").attr("data-delmode") === "true") {
+
+        $("#shortcut-del").text("⊘");
+        $("#shortcut-del").attr("data-delmode", "false");
+        $("#shortcut-del").removeClass("btn-success");
+        $("#shortcut-del").addClass("btn-warning");
+
+        populateLinks(launchLinks, launchLinkArr);
+
+    } else {
+
+        $("#shortcut-del").text("🗸");
+        $("#shortcut-del").attr("data-delmode", "true");
+        $("#shortcut-del").removeClass("btn-warning");
+        $("#shortcut-del").addClass("btn-success");
+
+        evilPopulate(launchLinks, launchLinkArr);
+    }
+
 })
